@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+    </style>
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/lib/index.min.js"></script>
+</head>
+<body>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+            font-family: "Roboto Mono", monospace;
+        }
+        .slider{
+            border: 1px solid black;
+           margin: 5%;
+            background: url(1.jpg)  center/cover no-repeat;
+            height: 250px;
+            width: 90%;
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .slider_black{
+            position: absolute;
+            background-color: rgb(59, 58, 58);
+            height: 250px;
+            width: 90%;
+            margin: 5%;
+            z-index: 2;
+            opacity: 0.8;
+            border-radius: 10px;
+            font-size: 20px; 
+            font-weight:bolder; 
+            color: rgb(255, 255, 255);
+            text-align: center;
+            display: flex; 
+            align-items: center;
+             justify-content: center;
+            
+
+        }
+        .b1{
+            position: absolute;
+            top: 32%;
+            font-size: 70px;
+            left: 15px;
+        }
+        .b2{
+            position: absolute;
+            top: 32%;
+            font-size: 70px;
+            right: 15px;
+        }
+        .slider_but{
+            background-color: white;
+           display: inline;
+           color: black;
+           padding: 5px;
+           position: relative;
+           top: 10px;
+           
+        }
+        .cancel{
+            width: 100%;
+            background-color: rgb(36, 36, 36);
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            padding: 8px;
+            
+        }
+    </style>
+    <!--cancel-->
+    <div class="cancel" >
+        <span style="font-weight: 250;">Sign Up and <span style="font-weight: bolder;">GET 20% OFF</span> for your first order</span>
+        <span style="cursor: pointer;" id=x1>x</span> 
+    </div>
+    <style>
+        .list li:hover{
+            color: rgb(132, 220, 132);
+        }
+    </style>
+  
+    <!-- mobile navbar-->
+    <div class="flex justify-between items-center sticky z-20 top-0 bg-white p-4 md:hidden ">
+        <h2 class="font-bold " style="font-size: 25px; ">Nostra</h2>
+        <h2 id="nav" style="cursor: pointer;"><i class="fa-solid fa-bars font-bold"></i></h2>
+    </div>
+      <!--Desktop navbar-->
+      <div class=" hidden md:flex p-4 sticky top-0 bg-white" style="align-items: center; justify-content: space-between;z-index: 100; ">
+        <h2 class="font-bold" style="font-size: 25px;">Nostra</h2>
+        <ul class=" list flex" style="font-size: 17px; font-weight: normal; cursor: pointer;gap: 20px;">
+            <li><a href="K:\week 4 js\index.html">Home</a></li>
+            <li ><a href="K:\week 4 js\completeweb_collection.html">Collection</a></li>
+            <li style="font-weight: bolder;"><a href="K:\week 4 js\contact_form.html">Contact Us</a></li>
+        </ul>
+    </div>
+    <style>
+        .side_navi{
+            background-color: rgb(36, 36, 36);
+            height: 100vh;
+            width: 50%;
+            position: absolute;
+            top: 0%;
+            z-index: 50;
+            right: 0%;
+        }
+    </style>
+    <!--Side Navigation-->
+    <div class="side_navi p-10 text-xl text-white text-start md:hidden " style="left:-100%;transition: 0.9s linear;">
+        <h1 class="absolute top-2 right-3 text-3xl cursor-pointer" id="x">x</h1>
+        <a href="K:\week 4 js\index.html" class="absolute top-6">Home</a><br>
+        <a href="" class="absolute top-20 ">Collection</a><br>
+        <a href="K:\week 4 js\contact_form.html" class="absolute top-36 font-extrabold">Contact</a>
+    </div>
+    <!--Contact form-->
+    <div class="p-6 mx-auto max-w-xl bg-white font-[sans-serif]">
+        <h1 class="text-3xl text-gray-800 font-extrabold text-center">Contact us</h1>
+        <form class="mt-8 space-y-4">
+            <input type='text' placeholder='Name'
+                class="w-full rounded-md py-3 px-4 text-gray-800 bg-gray-100 focus:bg-transparent text-sm outline-blue-500" />
+            <input type='email' placeholder='Email'
+                class="w-full rounded-md py-3 px-4 text-gray-800 bg-gray-100 focus:bg-transparent text-sm outline-blue-500" />
+            <input type='text' placeholder='Subject'
+                class="w-full rounded-md py-3 px-4 text-gray-800 bg-gray-100 focus:bg-transparent text-sm outline-blue-500" />
+            <textarea placeholder='Message' rows="6"
+                class="w-full rounded-md px-4 text-gray-800 bg-gray-100 focus:bg-transparent text-sm pt-3 outline-blue-500"></textarea>
+            <button type='button'
+                class="text-white bg-blue-500 hover:bg-blue-600 tracking-wide rounded-md text-sm px-4 py-3 w-full">Send</button>
+        </form>
+    </div>
+    <!--last-page-->
+    <div class="last_page mt-12" style=" background-color: rgb(29, 47, 47); color: white;padding: 20px;">
+        <div class="p-5 flex gap-5 align-middle justify-between">
+            <h1 style="font-size: 20px;vertical-align: middle;">Nostra</h1>
+            <p style="font-size: small;">The Standard Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nihil neque</p>
+        </div>
+        <div class="icons p-5 flex justify-between">
+            <div>
+            <h2>@ 2024 Nostra.com</h2>
+           </div>
+            <div class="flex gap-4">
+            <h1><i class="fa-brands fa-instagram"></i></h1>
+            <h1><i class="fa-brands fa-facebook"></i></h1>
+            <h1><i class="fa-brands fa-twitter"></i></h1>
+            <h1><i class="fa-solid fa-envelope"></i></h1>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var x=document.getElementById("x")
+var side=document.querySelector(".side_navi")
+x.addEventListener("click",()=>{
+   side.style.left="-100%"
+})
+var cancel1=document.querySelector(".cancel")
+   var x1=document.getElementById("x1")
+   x1.addEventListener("click",()=>{
+       cancel1.style.display="none"
+   })
+var side_nav=document.querySelector(".side_navi")
+var nav=document.getElementById("nav")
+nav.addEventListener("click",function(){
+   side_nav.style.left="0%"
+   
+})
+</script>

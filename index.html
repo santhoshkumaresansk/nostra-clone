@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+        </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/lib/index.min.js"></script>
+</head>
+<body>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+            font-family: "Roboto Mono", monospace;
+        }
+        .slider{
+            border: 1px solid black;
+           margin: 5%;
+       
+            height: 250px;
+            width: 90%;
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .slider_black{
+            position: absolute;
+            background-color: rgb(59, 58, 58);
+            height: 250px;
+            width: 90%;
+            margin: 5%;
+            z-index: 2;
+            opacity: 0.8;
+            border-radius: 10px;
+            font-size: 20px; 
+            font-weight:bolder; 
+            color: rgb(255, 255, 255);
+            text-align: center;
+            display: flex; 
+            align-items: center;
+             justify-content: center;
+            
+
+        }
+        .b1{
+            position: absolute;
+            top: 32%;
+            font-size: 70px;
+            left: 15px;
+        }
+        .b2{
+            position: absolute;
+            top: 32%;
+            font-size: 70px;
+            right: 15px;
+        }
+        .slider_but{
+            background-color: white;
+           display: inline;
+           color: black;
+           padding: 5px;
+           position: relative;
+           top: 10px;
+           
+        }
+        .cancel{
+            width: 100%;
+            padding: 8px;
+            background-color: rgb(36, 36, 36);
+            color: white;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+    
+    <!--cancel-->
+    <div class="cancel " >
+        <span style="font-weight: 250;">Sign Up and <span style="font-weight: bolder;">GET 20% OFF</span> for your first order</span>
+        <span style="cursor: pointer;" id="x1">x</span> 
+    </div>
+    <style>
+        .side_navi{
+            background-color: rgb(36, 36, 36);
+            height: 100vh;
+            width: 50%;
+            position: absolute;
+            top: 0%;
+            z-index: 50;
+            right: 0%;
+        }
+    </style>
+   
+    <!--Side Navigation-->
+    <div class="side_navi p-10 text-xl text-white text-start  md:hidden" style="left: -100%;transition: 0.9s linear;">
+        <h1 class="absolute top-2 right-3 text-3xl cursor-pointer" id="x" >x</h1>
+        <a href="K:\week 4 js\completeweb.html" class="absolute top-6  font-extrabold">Home</a><br>
+        <a href="#new_arrivals" class="absolute top-20">New Arrivals</a><br>
+        <a href="#most_wanted" class="absolute top-36">Most Wanted</a><br>
+        <a href="K:\week 4 js\completeweb_collection.html" class="absolute top-52">Collection</a><br>
+        <a href="K:\week 4 js\contact_form.html" class="absolute" style="top: 267px;">Contact</a>
+    </div>
+    <style>
+        .list li:hover{
+            color: rgb(132, 220, 132);
+        }
+    </style>
+  
+    <!-- mobile navbar-->
+    <div class="flex justify-between p-4 md:hidden items-center sticky z-20 top-0 bg-white">
+        <h2 class="font-bold " style="font-size: 25px; ">Nostra</h2>
+        <h2 id="nav" style="cursor: pointer;"><i class="fa-solid fa-bars font-bold"></i></h2>
+    </div>
+      <!--Desktop navbar-->
+      <div class="hidden md:flex p-4 sticky top-0 bg-white" style="align-items: center; justify-content: space-between;z-index: 100; ">
+        <h2 class="font-bold" style="font-size: 25px;">Nostra</h2>
+        <ul class=" list flex" style="font-size: 17px; font-weight: normal; cursor: pointer;gap: 20px;">
+            <li style="font-weight: bolder;"><a href="K:\week 4 js\index.html">Home</a></li>
+            <li><a href="#new_arrivals">New Arrivals</a></li>
+            <li><a href="#most_wanted">Most Wanted</a></li>
+            <li><a href="K:\week 4 js\completeweb_collection.html">Collection</a></li>
+            <li><a href="K:\week 4 js\contact_form.html">Contact Us</a></li>
+        </ul>
+    </div>
+    <!--SLIDDER SECTION -->
+    <style>
+        .slider_section{
+            margin: 1%;
+            width: 98%;
+            height: auto;
+            background-color: rgb(224, 214, 214);     
+        }
+        .slider_inner{
+            width: 100%;
+        }
+        .slider_section img{
+            width: 100%;
+           height: 100%; 
+        }
+        .slides{
+            display: none;
+            transition: 0.5s;
+        }
+        .active{
+            display: block;
+            transition: 0.2s;
+            
+        }
+    </style>
+
+    <div class="slider_section relative flex items-center">
+        <div class="slider_inner">
+            <img src="https://m-muthu-pandi.github.io/EMC-projects/9.%20Nostra%20-%20E-Commerce/Images/others/slider-one.jpg" class="slides active" alt="">
+            <img src="https://m-muthu-pandi.github.io/EMC-projects/9.%20Nostra%20-%20E-Commerce/Images/others/slider-two.jpg" class="slides" alt="">
+            <img src="https://m-muthu-pandi.github.io/EMC-projects/9.%20Nostra%20-%20E-Commerce/Images/others/slider-three.jpg" class="slides" alt="">
+        </div>
+ 
+        <div class="slider_content absolute text-center " style="width:98%;height: auto; color: white;">
+            <h1 class="font-extrabold text-xl md:text-3xl lg:text-5xl">Level up your style with our</h1>
+            <h3 class=" mt-2 md:text-2xl lg:text-4xl">Summer Collections</h3>
+            <div class="slider_shop p-2 mt-4 bg-white inline-block text-black font-extrabold md:text-3xl">Shop Now <i class="fa-solid fa-arrow-right"></i></div>
+            <button class="pre_btn text-4xl absolute left-12 md:text-6xl lg:text-7xl"><i class="fa-solid fa-chevron-left"></i></button>
+            <button class="nxt_btn  text-4xl absolute right-12 md:text-6xl lg:text-7xl "><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+    
+</div>
+    <!--BRAND-->
+    <style>
+        .brand_i_container{
+            display: flex;
+            justify-content: space-evenly;
+            text-align: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            font-size: larger;
+        }
+    </style>
+    <br>
+    <div class="brand_color" style="background-color: rgb(245, 245, 245);padding-bottom: 20px; ">
+    <div class="brand m-5" >
+        <h1 style="font-size: 25px; font-weight: bolder;padding-top: 20px;">Brands</h1>
+        <div class="brand_i_container mt-8 font-extrabold">
+        <div class="i_brand">
+            <i class="fa-brands fa-amazon"></i>
+            <h2>Amazon</h2>
+        </div>
+        <div class="i_brand">
+            <i class="fa-brands fa-wizards-of-the-coast"></i>
+            <h2>Wizards</h2>
+        </div>
+        <div class="i_brand">
+            <i class="fa-brands fa-studiovinari"></i>
+            <h2>Supple</h2>
+        </div>
+        <div class="i_brand">
+            <i class="fa-brands fa-suse"></i>
+            <h2>Suse</h2>
+        </div>
+        <div class="i_brand">
+            <i class="fa-brands fa-staylinked"></i>
+            <h2>Stackpath</h2>
+        </div>
+        <div class="i_brand">
+            <i class="fa-brands fa-swift"></i>
+            <h2>vaadin</h2>
+        </div>
+        <div class="i_brand">
+            <i class="fa-brands fa-vuejs"></i>
+            <h2>Vodu</h2>
+        </div>
+        <div class="i_brand">
+            <i class="fa-brands fa-yandex"></i>
+            <h2>atlassian</h2>
+        </div>
+    </div>      
+    </div>
+</div>
+    <!--Container section-->
+    <style>
+        .con_sec{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 5%;
+            gap: 90px;
+            
+        }
+        .con_sec1{
+            font-weight: bolder;
+            font-size: 18px;
+
+        }
+    </style>
+    <div class="con_sec pt-5">
+        <div class="con_sec1">
+            <h2 style="font-size:medium;">We Provide Best<br>Customer Experience</h2>
+        </div>
+        <div class="con_sec2">
+            <p style="font-size: smaller;">||We ensure that our customer have the best shopping experience</p>
+        </div>
+    </div>
+    <style>
+      
+        .cc_b{
+            background-color: rgb(245, 245, 245)
+        }
+        
+    </style>
+    <!--comment_container-->
+    <div class="comment_container flex flex-wrap  m-5  justify-around">
+        <div class="cc_b w-52 mb-2 p-7 lg:w-72" >
+            <div class="cc_ii" >
+                <i class="fa-solid fa-check text-xl p-2"></i>
+            </div>
+            <div>
+                <p style="font-weight: bolder;">Original Products</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, non.</p>
+            </div>
+        </div>
+        <div class="cc_b w-52 mb-2 p-7 lg:w-72">
+            <div class="cc_ii">
+                <i class="fa-solid fa-face-smile text-xl p-2"></i>
+               
+            </div>
+            <div>
+                <p style="font-weight: bolder;">Satisfaction Guarantee</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate, earum.</p>
+            </div>
+        </div>
+        <div class="cc_b w-52 mb-2 p-7 lg:w-72">
+            <div class="cc_ii">
+                <i class="fa-solid fa-wand-magic-sparkles text-xl p-2"></i>
+            </div>
+            <div>
+                <p style="font-weight: bolder;">New Arrival Everyday</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, accusantium!</p>
+            </div>
+        </div>
+        <div class="cc_b w-52 mb-2 p-7 lg:w-72">
+            <div class="cc_ii">
+                <i class="fa-solid fa-truck text-xl p-2"></i>
+            </div>
+            <div>
+                <p style="font-weight: bolder;">Fast & Free Shipping</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, repudiandae!</p>
+            </div>
+        </div>
+        
+    </div>
+    <!--New Arrivals-->
+    <style>
+        .new_arrival_conatiner{
+            
+        }
+        .new_arr_box img{
+            width: 100%;
+            height: 100%;
+        }
+        .new_arr_box_but{
+            background-color:white;
+             display: inline;
+             position: absolute;
+             top: 63%;
+             left: 30%;
+             padding: 7px;
+             border-radius: 10px;
+        }
+      
+    </style>
+    <div class="new_arrival_conatiner m-5" id="new_arrivals">
+        <h1 style="font-size: 20px; font-weight: bolder;padding-top: 20px;padding-bottom: 5%;">New Arrivals</h1>
+    <div class="new-arrival flex flex-wrap justify-around">
+        <div class="new_arr_box w-52 h-56 relative mb-2">
+            <img src="https://img.freepik.com/premium-photo/white-shirt-with-shoes-pant-background_948935-1367.jpg" alt="" >
+            <div class="new_arr_box_but">Shop Now</div>
+        </div>
+        <div class="new_arr_box w-52 h-56 mb-2 relative">
+            <img src="https://i.pinimg.com/736x/a6/ce/33/a6ce332d9ed9aed1cfdd7abde3d7541c.jpg" alt="">
+            <div class="new_arr_box_but">Shop Now</div>
+        </div>
+        <div class="new_arr_box w-52 h-56 relative">
+            <img src="https://assets.ajio.com/medias/sys_master/root/20201202/lCKV/5fc68ccdaeb269d56324fc06/-473Wx593H-441103100-jetblack-MODEL.jpg" alt="">
+            <div class="new_arr_box_but">Shop Now</div>
+        </div>
+        <div class="new_arr_box w-52 h-56 relative">
+            <img src="https://www.seekpng.com/png/detail/159-1597184_dress-shirt-png-image-shirt-3d-png.png" alt="">
+            <div class="new_arr_box_but">Shop Now</div>
+        </div>
+    </div>
+</div>
+<!--Most Wanted-->
+<div class="most_wanted m-5" id="most_wanted">
+    <h1 style="font-size: 20px; font-weight: bolder;padding-top: 20px;padding-bottom: 5%;">Most Wanted</h1>
+    <div class="most_wanted_box_con flex flex-wrap justify-around cursor-pointer">
+        <div class="most_wanted_box w-52 h-56 mb-9 relative" style="border: black solid 1px;">
+            <img src="https://cdn11.bigcommerce.com/s-pkla4xn3/products/33073/images/304186/rBVaqWCFi5KAP2fLAAwDy_fLjbc28__44584.1624601724.500.750.jpg?c=2" style="width: 100%;" alt="">
+                <div class="absolute top-0 left-0 bg-red-600 text-white p-1">sale</div>
+                <h3 class="absolute right-2  bottom-0 text-4xl ">♡</h3>
+        </div>
+        <div class="most_wanted_box w-52 h-56 mb-9 relative" style="border: black solid 1px;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSXfIqrxuTcunYlurbFKsnvP0Sbjcca3Qg2w&s" style="width: 100%;" alt="">
+                <div class="absolute top-0 left-0 bg-red-600 text-white p-1">sale</div>
+                <h3 class="absolute right-2 bottom-0 text-4xl ">♡</h3>
+            </img>
+        </div>
+        <div class="most_wanted_box w-52 h-56 mb-9 relative" style="border: black solid 1px;">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdVC5PPicH3dwmDCxt1TjrEpjJoCOQqRCknIHNNBHyezrIPD85S0AFkgIVo6JjGlil6Xc&usqp=CAU"style="width: 100%;"  alt="">
+                <div class="absolute top-0 left-0 bg-red-600 text-white p-1">sale</div>
+                <h3 class="absolute right-2 bottom-0 text-4xl ">♡</h3>
+            </img>
+        </div>
+        <div class="most_wanted_box w-52 h-56 mb-9 relative" style="border: black solid 1px;">
+            <img src="https://i.ebayimg.com/00/s/ODAwWDgwMA==/z/P8QAAOSwEBNi-xd0/$_12.JPG?set_id=880000500F" style="width: 100%;" alt="">
+                <div class="absolute top-0 left-0 bg-red-600 text-white p-1">sale</div>
+                <h3 class="absolute right-2 bottom-0 text-4xl ">♡</h3>
+            </img>
+        </div>
+        <div class="most_wanted_box w-52 h-56 mb-9 relative" style="border: black solid 1px;">
+            <img src="https://i5.walmartimages.com/asr/f792709e-26b0-40e7-af55-72128f0ebf47.7815da13ab56114e6a9bbd8fb1acffc6.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"style="width: 100%;"  alt="">
+                <div class="absolute top-0 left-0 bg-red-600 text-white p-1">sale</div>
+                <h3 class="absolute right-2 bottom-0 text-4xl ">♡</h3>
+            </img>
+        </div>
+        <div class="most_wanted_box w-52 h-56 mb-9 relative" style="border: black solid 1px;">
+            <img src="https://i5.walmartimages.com/seo/Mens-Casual-Shirts-Business-Pocket-Mens-Dress-Shirts-Men-s-Solid-Colour-Long-Sleeve-Shirt-Loose-Stylish-Shirts-for-Men-Long-Sleeve-Shirts-for-Men_45722578-7c9a-475f-875b-a7192944f5fa.345e78d1762c6daf00a744dbe561bb73.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" style="width: 100%;" alt="">
+                <div class="absolute top-0 left-0 bg-red-600 text-white p-1">sale</div>
+                <h3 class="absolute right-2 bottom-0 text-4xl ">♡</h3>
+            </img>
+        </div>
+    </div>
+</div>
+<!--Adv container-->
+    <style>
+        .adv_con{
+            width: 100%;
+            background-color: rgb(29, 47, 47);
+            height: 360px;
+            text-align: center;
+            
+        }
+    </style>
+    <div class="adv_con md:flex p-2 justify-around items-center" style="height: 400px;" >
+        <div class=" adv_img flex justify-center ">
+        <div class="h-64 p-6 md:h-96 ">
+            <img src="https://img.freepik.com/free-photo/woman-black-trousers-purple-blouse-laughs-leaning-stand-with-elegant-clothes-pink-background_197531-17614.jpg" alt="" style="width: 100%;height: 100%;">
+        </div>
+    </div>
+        <div class="adv_content text-white font-extrabold">
+            <h2 class="md:text-3xl mb-4">Limited Offer</h2>
+            <p class="md:text-xl">35% OFF on this for the first 30 Customers</p>
+            <div class="bg-white text-black inline p-2 relative top-4 border border-r-4">Shop Now</div>
+        </div>
+    </div>
+    <!--SUBSCRIBE Section-->
+    <div class="subscribe  text-center mt-5" style="width: 100%;">
+        <div class="sub_con">
+            <h1 style="font-weight: bolder; font-size: 19px;">Join Our News Letter</h1>
+            <p style="font-size: small;">Signup for our email newspaper to get exclusive discount, updates, and more</p>
+            <div>
+            <div class="sub_input border border-black" style="width: 90%;margin-left:5%;margin-top:2%;height: 40px;"></div>
+        </div>
+        <div class="mt-5">
+            <div class="sub-but top-4 inline p-2 text-white" style=" background-color: rgb(29, 47, 47);">Subscribe</div>
+        </div>
+        </div>
+    </div>
+    <!--last-page-->
+    <div class="last_page mt-10" style=" background-color: rgb(29, 47, 47); color: white;padding: 20px;">
+        <div class="p-5 flex gap-5 align-middle justify-between">
+            <h1 style="font-size: 20px;vertical-align: middle;">Nostra</h1>
+            <p style="font-size: small;">The Standard Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nihil neque</p>
+        </div>
+        <div class="icons p-5 flex justify-between">
+            <div>
+            <h2>@ 2024 Nostra.com</h2>
+           </div>
+            <div class="flex gap-4">
+            <h1><i class="fa-brands fa-instagram"></i></h1>
+            <h1><i class="fa-brands fa-facebook"></i></h1>
+            <h1><i class="fa-brands fa-twitter"></i></h1>
+            <h1><i class="fa-solid fa-envelope"></i></h1>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+       var x=document.getElementById("x")
+    var side=document.querySelector(".side_navi")
+    x.addEventListener("click",()=>{
+        side.style.left="-100%"
+    })
+     var cancel1=document.querySelector(".cancel")
+        var x1=document.getElementById("x1")
+        x1.addEventListener("click",()=>{
+            cancel1.style.display="none"
+        })
+    var side_nav=document.querySelector(".side_navi")
+    var nav=document.getElementById("nav")
+    nav.addEventListener("click",function(){
+        side_nav.style.left="0%"
+        
+    })
+    var slides=document.querySelectorAll(".slides")
+        var prebtn=document.querySelector(".pre_btn")
+        var nxtbtn=document.querySelector(".nxt_btn")
+        var current_position=0;
+        function updateposition(){
+            slides.forEach(slide=>{
+                slide.classList.remove("active") 
+            })
+            slides[current_position].classList.add("active")
+            slides.style.transition="1.2s"
+            
+        }
+        nxtbtn.addEventListener("click",()=>{
+         
+            if(current_position==slides.length-1){
+                current_position=0
+            }else{
+                current_position++;
+            }
+            updateposition()
+        })
+        prebtn.addEventListener("click",()=>{
+            if(current_position==0){
+                current_position=slides.length-1
+            }else{
+                current_position--;
+            }
+            updateposition()
+        })
+   
+</script>

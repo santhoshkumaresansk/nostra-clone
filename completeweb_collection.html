@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+</style>
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/lib/index.min.js"></script>
+</head>
+<body>
+    <style>
+        *{
+            padding: 0%;
+            margin: 0%;
+            box-sizing: border-box;
+            font-family: "Roboto Mono", monospace;
+        }
+        .slider{
+            border: 1px solid black;
+           margin: 5%;
+            background: url(1.jpg)  center/cover no-repeat;
+            height: 250px;
+            width: 90%;
+            border-radius: 10px;
+            position: relative;
+            z-index: 1;
+        }
+        .slider_black{
+            position: absolute;
+            background-color: rgb(59, 58, 58);
+            height: 250px;
+            width: 90%;
+            margin: 5%;
+            z-index: 2;
+            opacity: 0.8;
+            border-radius: 10px;
+            font-size: 20px; 
+            font-weight:bolder; 
+            color: rgb(255, 255, 255);
+            text-align: center;
+            display: flex; 
+            align-items: center;
+             justify-content: center;
+            
+
+        }
+        .b1{
+            position: absolute;
+            top: 32%;
+            font-size: 70px;
+            left: 15px;
+        }
+        .b2{
+            position: absolute;
+            top: 32%;
+            font-size: 70px;
+            right: 15px;
+        }
+        .slider_but{
+            background-color: white;
+           display: inline;
+           color: black;
+           padding: 5px;
+           position: relative;
+           top: 10px;
+           
+        }
+        .cancel{
+            width: 100%;
+            padding: 8px;
+            background-color: rgb(36, 36, 36);
+            color: white;
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+    <!--cancel-->
+    <div class="cancel" >
+        <span style="font-weight: 250;">Sign Up and <span style="font-weight: bolder;">GET 20% OFF</span> for your first order</span>
+        <span style="cursor: pointer;" id=x1>x</span> 
+    </div>
+    <style>
+        .list li:hover{
+            color: rgb(132, 220, 132);
+        }
+    </style>
+  
+    <!-- mobile navbar-->
+    <div class="flex justify-between p-4 md:hidden items-center sticky z-20 top-0 bg-white">
+        <h2 class="font-bold " style="font-size: 25px; ">Nostra</h2>
+        <h2 id="nav" style="cursor: pointer;"><i class="fa-solid fa-bars font-bold"></i></h2>
+    </div>
+      <!--Desktop navbar-->
+      <div class=" hidden md:flex  p-4 sticky top-0 bg-white" style="align-items: center; justify-content: space-between;z-index: 100; ">
+        <h2 class="font-bold" style="font-size: 25px;">Nostra</h2>
+        <ul class=" list flex" style="font-size: 17px; font-weight: normal; cursor: pointer;gap: 20px;">
+            <li><a href="K:\week 4 js\index.html">Home</a></li>
+            <li style="font-weight: bolder;"><a href="K:\week 4 js\completeweb_collection.html">Collection</a></li>
+            <li><a href="K:\week 4 js\contact_form.html">Contact Us</a></li>
+        </ul>
+    </div>
+    <style>
+        .side_navi{
+            background-color: rgb(36, 36, 36);
+            height: 100vh;
+            width: 50%;
+            position: absolute;
+            top: 0%;
+            z-index: 50;
+            right: 0%;
+        }
+    </style>
+    <!--Side Navigation-->
+    <div class="side_navi p-10 text-xl text-white text-start md:hidden " style="left:-100%;transition: 0.9s linear;">
+        <h1 class="absolute top-2 right-3 text-3xl cursor-pointer" id="x">x</h1>
+        <a href="K:\week 4 js\completeweb.html" class="absolute top-6">Home</a><br>
+        <a href="" class="absolute top-20 font-extrabold">Collection</a><br>
+        <a href="K:\week 4 js\contact_form.html" class="absolute top-36">Contact</a>
+    </div>
+    <!--Search & filter container for desktop-->
+<div class="md:flex m-5 justify-between hidden ">
+    <div class=" " style="border-right: 1px solid black;width: 20%;height: 100vh;padding: 20px;">
+            <div class="">
+                <h1 class="font-extrabold text-xl pb-5">Occasion</h1>
+                <h1 class=""><input type="checkbox" name="check" id="box1">Summer<br></h1>
+                <h1 class="pb-5"></h1><input type="checkbox" name="check" id="box2">Party<br>
+                <h1 class="pb-5"></h1><input type="checkbox" name="check" id="box3">Beach<br>
+        </div>
+        <div >
+            <h1 class="font-extrabold text-xl pt-6 pb-2">Colors</h1>
+            <h1 class="pb-5 pt-5"><input type="checkbox" name="check_color" id="box1">Red</h1>
+            <h1 class="pb-5"><input type="checkbox" name="check_color" id="box2">Blue</h1>
+            <h1 class="pb-5"><input type="checkbox" name="check_color" id="box3">White</h1>
+            <h1 class="pb-5"> <input type="checkbox" name="check_color" id="box3">Green</h1>
+        </div>
+    </div>
+    <style>
+          .desk-search:focus{
+            outline: none;
+        }
+    </style>
+    
+    <div class="desk-container-2 md:block p-10 text-center hidden" style="width: 80%;">
+       <div style="width:90%;height: 50px; border: 1px solid black;border-radius: 10px; margin-left: 5%;" >
+        <input type="text" id="search2" placeholder="Search" style="background: transparent;width: 100%;height: 100%; padding-left: 4px;" class="desk-search">
+       </div>
+       <div class="most_wanted_box_con flex flex-wrap justify-around gap-4 cursor-pointer p-7" id="most_wanted_box_con">
+        <div class="most_wanted_box2 w-64 mb-9 relative" style="border: 1px solid black;height: 300px;" boxx="box1">
+            <img src="https://cdn11.bigcommerce.com/s-pkla4xn3/products/33073/images/304186/rBVaqWCFi5KAP2fLAAwDy_fLjbc28__44584.1624601724.500.750.jpg?c=2" style="width: 100%;" alt=""> 
+                <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+                <h2 style="font-weight: bold;text-align: center;">Floral Summer Shirt</h2>
+                <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box2 w-64 mb-9 relative" style="border: 1px solid black;height: 300px;" boxx="box2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSXfIqrxuTcunYlurbFKsnvP0Sbjcca3Qg2w&s" style="width: 100%;" alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">Summer Green Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box2 w-64 mb-9 relative" style="border: 1px solid black;height: 300px;"boxx="box3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdVC5PPicH3dwmDCxt1TjrEpjJoCOQqRCknIHNNBHyezrIPD85S0AFkgIVo6JjGlil6Xc&usqp=CAU"style="width: 100%;"  alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">Party Floral Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box2 w-64 mb-9 relative" style="border: 1px solid black;height: 300px;" boxx="box2">
+            <img src="https://i.ebayimg.com/00/s/ODAwWDgwMA==/z/P8QAAOSwEBNi-xd0/$_12.JPG?set_id=880000500F" style="width: 100%;" alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">Formal suitfit Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box2 w-64 mb-9 relative" style="border: 1px solid black;height: 300px;" boxx="box3">
+            <img src="https://i5.walmartimages.com/asr/f792709e-26b0-40e7-af55-72128f0ebf47.7815da13ab56114e6a9bbd8fb1acffc6.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"style="width: 100%;"  alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">FitZone Summer Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box2 w-64 mb-9 relative" style="border: 1px solid black;height: 300px;" boxx="box2">
+            <img src="https://i5.walmartimages.com/seo/Mens-Casual-Shirts-Business-Pocket-Mens-Dress-Shirts-Men-s-Solid-Colour-Long-Sleeve-Shirt-Loose-Stylish-Shirts-for-Men-Long-Sleeve-Shirts-for-Men_45722578-7c9a-475f-875b-a7192944f5fa.345e78d1762c6daf00a744dbe561bb73.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" style="width: 100%;" alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">Casual Summer Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+    </div>
+</div>
+</div>
+    <!--Search-mobile-->
+    <style>
+        .search:focus{
+            outline: none;
+        }
+    </style>
+    <div class="m-10 md:hidden" style="width: 90%;border: 1px solid black;height: 50px;position: relative;border-radius: 10px;margin: 5%;">
+        <input class="search" type="text" style="width: 100%;position: absolute; top: 0%; height: 100%;padding-left:4px;background: transparent;" placeholder="Search" class="search"><i class="fa-solid fa-magnifying-glass absolute right-4 bottom-4 " ></i></div>
+    </div>
+    <!--Filterm_mobile-->
+    <div style="background-color: rgb(244, 244, 244);" class="p-5 md:hidden">
+    <div class="filter m-5 text-red-700">
+        <h1 class="pb-3 font-extrabold text-xl ">Choose Your Filters</h1>
+        <div class=" flex gap-5">
+        <h1 class="font-extrabold text-xl">Occasion</h1>
+        <input type="checkbox" name="check" value="summer" id="box1">Summer<br>
+        <input type="checkbox" name="check" value="party" id="box2">Party<br>
+        <input type="checkbox" name="check" value="Beach" id="box3">Beach<br>
+    </div>
+    <div class="flex gap-5">
+        <h1 class="font-extrabold text-xl">Colors</h1>
+        <input type="checkbox" name="check_color" value="red" id="box1">Red<br>
+        <input type="checkbox" name="check_color" value="Blue" id="box2">Blue<br>
+        <input type="checkbox" name="check_color" value="white"id="box3">White<br>
+        <input type="checkbox" name="check_color" Value="Green" id="box3">Green
+    </div>
+    </div>
+</div>
+
+<!--Filter-iimages section-->
+<div class="most_wanted m-5 md:hidden">
+
+    <div class="most_wanted_box_con flex flex-wrap justify-around cursor-pointer">
+        <div class="most_wanted_box w-52 h-64 mb-9 relative" style="border: 1px solid black;" check-box="box1" >
+            <img src="https://cdn11.bigcommerce.com/s-pkla4xn3/products/33073/images/304186/rBVaqWCFi5KAP2fLAAwDy_fLjbc28__44584.1624601724.500.750.jpg?c=2" style="width: 100%;" alt=""> 
+                <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+                <h2 class="select" style="font-weight: bold;text-align: center;">Floral Summer Shirt</h2>
+                <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box w-52 h-64 mb-9 relative" style="border: black solid 1px;"  check-box="box2">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSXfIqrxuTcunYlurbFKsnvP0Sbjcca3Qg2w&s" style="width: 100%;" alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">Summer Green Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box w-52 h-64 mb-9 relative" style="border: black solid 1px;"  check-box="box3">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdVC5PPicH3dwmDCxt1TjrEpjJoCOQqRCknIHNNBHyezrIPD85S0AFkgIVo6JjGlil6Xc&usqp=CAU"style="width: 100%;"  alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">Party Floral Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box w-52 h-64 mb-9 relative" style="border: black solid 1px;"  check-box="box1">
+            <img src="https://i.ebayimg.com/00/s/ODAwWDgwMA==/z/P8QAAOSwEBNi-xd0/$_12.JPG?set_id=880000500F" style="width: 100%;" alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">Formal suitfit Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box w-52 h-64 mb-9 relative" style="border: black solid 1px;"  check-box="box2">
+            <img src="https://i5.walmartimages.com/asr/f792709e-26b0-40e7-af55-72128f0ebf47.7815da13ab56114e6a9bbd8fb1acffc6.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF"style="width: 100%;"  alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">FitZone Summer Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+        <div class="most_wanted_box w-52 h-64 mb-9 relative" style="border: black solid 1px;"  check-box="box3">
+            <img src="https://i5.walmartimages.com/seo/Mens-Casual-Shirts-Business-Pocket-Mens-Dress-Shirts-Men-s-Solid-Colour-Long-Sleeve-Shirt-Loose-Stylish-Shirts-for-Men-Long-Sleeve-Shirts-for-Men_45722578-7c9a-475f-875b-a7192944f5fa.345e78d1762c6daf00a744dbe561bb73.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" style="width: 100%;" alt="">
+            <h3 class="absolute right-2 top-0 text-4xl text-red-500">♡</h3>
+            <h2 style="font-weight: bold;text-align: center;">Casual Summer Shirt</h2>
+            <p class="ml-2" style="font-size: small;">$220</p>
+        </div>
+    </div>
+</div>
+<!--last-page-->
+<div class="last_page mt-10" style=" background-color: rgb(29, 47, 47); color: white;padding: 20px;" >
+    <div class="p-5 flex gap-5 align-middle justify-between">
+        <h1 style="font-size: 20px;vertical-align: middle;">Nostra</h1>
+        <p style="font-size: small;">The Standard Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa nihil neque</p>
+    </div>
+    <div class="icons p-5 flex justify-between">
+        <div>
+        <h2>@ 2024 Nostra.com</h2>
+       </div>
+        <div class="flex gap-4">
+        <h1><i class="fa-brands fa-instagram"></i></h1>
+        <h1><i class="fa-brands fa-facebook"></i></h1>
+        <h1><i class="fa-brands fa-twitter"></i></h1>
+        <h1><i class="fa-solid fa-envelope"></i></h1>
+    </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+         var x=document.getElementById("x")
+    var side=document.querySelector(".side_navi")
+    x.addEventListener("click",()=>{
+        side.style.left="-100%"
+    })
+     var cancel1=document.querySelector(".cancel")
+        var x1=document.getElementById("x1")
+        x1.addEventListener("click",()=>{
+            cancel1.style.display="none"
+        })
+    var side_nav=document.querySelector(".side_navi")
+    var nav=document.getElementById("nav")
+    nav.addEventListener("click",function(){
+        side_nav.style.left="0%"
+        
+    })
+    var search =document.querySelector(".search")
+    var container=document.querySelectorAll(".most_wanted_box")
+     var con=document.querySelectorAll(".most_wanted_box h2")
+     search.addEventListener("keyup",()=>{
+        var enter_value=event.target.value.toUpperCase()
+        con.forEach(function(item){
+           
+            if(item.textContent.toUpperCase().indexOf(enter_value)==-1){
+                item.parentElement.style.display="none"
+            }else{
+                item.parentElement.style.display="block"
+            }
+        })
+     })
+     var search2 =document.querySelector("#search2")
+    var container=document.querySelectorAll(".most_wanted_box2")
+     var con2=document.querySelectorAll(".most_wanted_box2 h2")
+     search2.addEventListener("keyup",()=>{
+        var enter_value2=event.target.value.toUpperCase()
+        con2.forEach(function(items){
+           console.log(enter_value2)
+            if(items.textContent.toUpperCase().indexOf(enter_value2)==-1){
+                items.parentElement.style.display="none"
+            }else{
+                items.parentElement.style.display="block"
+            }
+        })
+     })
+     var check=document.querySelectorAll("input[name=check]")
+    check.forEach(function(check){
+        check.addEventListener("click",()=>{
+            var get_val=document.querySelector(`div[check-box=${check.id}]`)
+            if(check.checked){
+                get_val.style.display="block"
+            }else{
+                get_val.style.display="none"
+            }
+        })
+       
+    })
+    var check=document.querySelectorAll("input[name=check_color]")
+    check.forEach(function(check){
+        check.addEventListener("click",()=>{
+            var get_val=document.querySelector(`div[check-box=${check.id}]`)
+            if(check.checked){
+                get_val.style.display="block"
+            }else{
+                get_val.style.display="none"
+            }
+        })
+       
+    })
+     var check=document.querySelectorAll("input[name=check]")
+    check.forEach(function(check){
+        check.addEventListener("click",()=>{
+            var get_val=document.querySelector(`div[boxx=${check.id}]`)
+            if(check.checked){
+                get_val.style.display="block"
+            }else{
+                get_val.style.display="none"
+            }
+        })
+       
+    })
+    var check=document.querySelectorAll("input[name=check_color]")
+    check.forEach(function(check){
+        check.addEventListener("click",()=>{
+            var get_val=document.querySelector(`div[boxx=${check.id}]`)
+            if(check.checked){
+                get_val.style.display="block"
+            }else{
+                get_val.style.display="none"
+            }
+        })
+       
+    })
+</script>
